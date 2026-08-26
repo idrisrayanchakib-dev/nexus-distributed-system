@@ -1,0 +1,14 @@
+# Ignore Python backend scripts from Vercel function scanner
+main.py
+server.py
+p2p_chat_distributed.py
+nexus/
+tests/
+dist/
+build/
+*.spec
+*.db
+*.sqlite3
+requirements.txt
+pyproject.toml
+.github/

@@ -1,50 +1,49 @@
 {
-  "version": 2,
+  "outputDirectory": "website",
   "cleanUrls": true,
-  "builds": [
+  "headers": [
     {
-      "src": "website/**",
-      "use": "@vercel/static"
-    }
-  ],
-  "routes": [
-    {
-      "src": "/assets/(.*)",
-      "dest": "/website/assets/$1"
+      "source": "/NexusP2P-Windows-x64.zip",
+      "headers": [
+        {
+          "key": "Content-Disposition",
+          "value": "attachment; filename=NexusP2P-Windows-x64.zip"
+        },
+        {
+          "key": "Content-Type",
+          "value": "application/zip"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
     },
     {
-      "src": "/NexusP2P-Windows-x64.zip",
-      "headers": {
-        "Content-Disposition": "attachment; filename=NexusP2P-Windows-x64.zip",
-        "Content-Type": "application/zip",
-        "Cache-Control": "public, max-age=31536000, immutable"
-      },
-      "dest": "/website/NexusP2P-Windows-x64.zip"
+      "source": "/NexusP2P.exe",
+      "headers": [
+        {
+          "key": "Content-Disposition",
+          "value": "attachment; filename=NexusP2P.exe"
+        },
+        {
+          "key": "Content-Type",
+          "value": "application/vnd.microsoft.portable-executable"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
     },
     {
-      "src": "/NexusP2P.exe",
-      "headers": {
-        "Content-Disposition": "attachment; filename=NexusP2P.exe",
-        "Content-Type": "application/vnd.microsoft.portable-executable",
-        "Cache-Control": "public, max-age=31536000, immutable"
-      },
-      "dest": "/website/NexusP2P.exe"
-    },
-    {
-      "src": "/styles.css",
-      "dest": "/website/styles.css"
-    },
-    {
-      "src": "/app.js",
-      "dest": "/website/app.js"
-    },
-    {
-      "src": "/",
-      "dest": "/website/index.html"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/website/$1"
+      "source": "/assets/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
     }
   ]
 }
