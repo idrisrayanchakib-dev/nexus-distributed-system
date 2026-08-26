@@ -1,0 +1,9 @@
+{
+  "name": "nexus-distributed-system",
+  "version": "2.0.0",
+  "private": true,
+  "description": "NEXUS P2P Decentralized Messaging & Distributed Consensus Engine",
+  "scripts": {
+    "build": "echo Static build complete"
+  }
+}
