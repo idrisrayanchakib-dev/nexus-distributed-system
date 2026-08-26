@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NEXUS P2P — Decentralized Communication & Distributed Consensus Engine</title>
+  <meta name="description" content="An enterprise-grade serverless peer-to-peer messaging engine featuring Lamport logical clocks, zero-knowledge Fernet encryption, UDP discovery, and chunked file transfer.">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" type="image/svg+xml" href="assets/nexus-logo.svg">
+</head>
+<body>
+
+  <div class="bg-grid-pattern"></div>
+
+  <!-- Main Navigation Bar -->
+  <nav class="navbar">
+    <div class="container nav-container">
+      <a href="#" class="brand-link">
+        <img src="assets/nexus-logo.svg" alt="NEXUS Logo" class="brand-logo-img">
+        <span>NEXUS <span class="text-brand-gradient">P2P</span></span>
+      </a>
+
+      <ul class="nav-menu">
+        <li class="nav-item"><a href="#architecture">Architecture</a></li>
+        <li class="nav-item"><a href="#innovations">System Design</a></li>
+        <li class="nav-item"><a href="#schemas">Wire Protocol</a></li>
+        <li class="nav-item"><a href="#comparison">Benchmarks</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <a href="https://github.com/idrisrayanchakib-dev/nexus-distributed-system" target="_blank" class="btn btn-secondary">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+          <span>GitHub</span>
+        </a>
+        <a href="NexusP2P-Windows-x64.zip" download class="btn btn-primary btn-download-trigger">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          <span>Download (x64)</span>
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section with Layered High-Tech Background -->
+  <header class="hero-section section-with-bg">
+    <div class="section-bg-image" style="background-image: url('https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=1920&q=80');"></div>
+    <div class="section-bg-overlay"></div>
+
+    <div class="container">
+      <div class="hero-content" data-reveal>
+        <div class="badge-pill">
+          <span class="badge-dot"></span>
+          <span>Zero Server Infrastructure • Lamport Causality • Full-Mesh Sockets</span>
+        </div>
+
+        <h1 class="hero-headline">
+          Decentralized Messaging &amp; Consensus Built for <span class="text-brand-gradient">High Reliability</span>
+        </h1>
+
+        <p class="hero-lead">
+          NEXUS P2P replaces centralized communication servers with an asynchronous socket mesh. Featuring Lamport Logical Clocks for causal event ordering, PBKDF2HMAC-derived Fernet cryptography, chunked binary file streaming, and fault-tolerant leader elections.
+        </p>
+
+        <div class="hero-cta-group">
+          <a href="NexusP2P-Windows-x64.zip" download="NexusP2P-Windows-x64.zip" class="btn btn-primary btn-lg btn-download-trigger">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            <span>Download Standalone Package (.zip)</span>
+          </a>
+          <a href="NexusP2P.exe" download="NexusP2P.exe" class="btn btn-secondary btn-lg btn-download-trigger">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            <span>Direct .exe (5.9 MB)</span>
+          </a>
+        </div>
+
+        <div class="hero-metrics">
+          <div class="metric-item">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            <span>Sub-millisecond Local Latency</span>
+          </div>
+          <div class="metric-item">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            <span>Zero-Knowledge E2EE</span>
+          </div>
+          <div class="metric-item">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+            <span>100% Serverless Mesh</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Real-Time Telemetry & Architecture Board -->
+      <div class="system-board" id="architecture" data-reveal data-delay="200">
+        <div class="board-header">
+          <div class="window-controls">
+            <span class="control-dot dot-close"></span>
+            <span class="control-dot dot-min"></span>
+            <span class="control-dot dot-max"></span>
+          </div>
+          <div class="board-title">nexus-node://runtime-telemetry (Lamport Clock: Active)</div>
+          <div style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--brand-emerald);">● ACTIVE MESH</div>
+        </div>
+
+        <div class="board-body">
+          <div class="board-visual" style="background-image: url('https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1200&q=80');">
+            <div class="visual-content">
+              <div class="visual-tag">Distributed Mesh Topology</div>
+              <h3 class="visual-title">Autonomous Peer Node Coordination</h3>
+              <p class="visual-desc">Every node acts as both a TCP server listener and active client. Packets flow directly point-to-point without middlemen.</p>
+            </div>
+          </div>
+
+          <div class="board-terminal">
+            <div class="terminal-stream" id="telemetry-stream">
+              <!-- Live events populated by app.js -->
+            </div>
+            <div style="border-top: 1px solid var(--border-subtle); padding-top: var(--space-3); font-size: 0.75rem; color: var(--text-tertiary); display: flex; justify-content: space-between;">
+              <span>Protocol: Raw TCP Socket Framing (\n delimited)</span>
+              <span>Buffer: 64 KB</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Core System Innovations with Distributed Datacenter Background -->
+  <section class="section section-with-bg" id="innovations">
+    <div class="section-bg-image" style="background-image: url('https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1920&q=80'); opacity: 0.08;"></div>
+    <div class="section-bg-overlay"></div>
+
+    <div class="container">
+      <div class="section-head" data-reveal>
+        <div class="section-overline">Core Engineering</div>
+        <h2 class="section-headline">Distributed System Design Foundations</h2>
+        <p class="section-description">Architected from foundational networking, applied cryptography, and consensus primitives.</p>
+      </div>
+
+      <div class="system-grid">
+        <!-- Card 1: Lamport Clocks -->
+        <div class="system-card" data-reveal data-delay="0">
+          <div class="card-media" style="background-image: url('https://images.unsplash.com/photo-1509228468518-180dd4864904?auto=format&fit=crop&w=800&q=80');">
+            <span class="card-badge">Distributed Causality</span>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">Lamport Logical Clocks</h3>
+            <p class="card-text">
+              Solves wall-clock drift in decentralized networks. Every message advances logical timestamps $L(e)$, guaranteeing deterministic causal partial ordering across all peers.
+            </p>
+            <div class="card-spec-tag">
+              <span>Rule: max(L_local, L_msg) + 1</span>
+              <span class="text-mono">O(1) Sync</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2: Cryptography -->
+        <div class="system-card" data-reveal data-delay="100">
+          <div class="card-media" style="background-image: url('https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=800&q=80');">
+            <span class="card-badge">Applied Security</span>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">Zero-Knowledge E2EE</h3>
+            <p class="card-text">
+              Derives 256-bit symmetric encryption keys using PBKDF2HMAC with SHA-256 across 100,000 iterations. Derives 4-character room fingerprints for instant unauthorized packet rejection.
+            </p>
+            <div class="card-spec-tag">
+              <span>Cipher: Fernet Authenticated</span>
+              <span class="text-mono">256-bit Key</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3: File Transfer -->
+        <div class="system-card" data-reveal data-delay="200">
+          <div class="card-media" style="background-image: url('https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=800&q=80');">
+            <span class="card-badge">Binary Streaming</span>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">Chunked File Transfer</h3>
+            <p class="card-text">
+              Direct peer-to-peer file transmission engine. Splits arbitrary files into 32 KB chunk envelopes and validates complete transmissions with cryptographic SHA-256 checksums.
+            </p>
+            <div class="card-spec-tag">
+              <span>Integrity: SHA-256 Checksum</span>
+              <span class="text-mono">32 KB Slices</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 4: Consensus -->
+        <div class="system-card" data-reveal data-delay="0">
+          <div class="card-media" style="background-image: url('https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80');">
+            <span class="card-badge">Consensus Engine</span>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">Failover Voting Consensus</h3>
+            <p class="card-text">
+              Leader-driven ballot coordination with automated fallback: if the election initiator disconnects, surviving peers timeout and compute consensus tallies locally.
+            </p>
+            <div class="card-spec-tag">
+              <span>Model: Leader + Fallback</span>
+              <span class="text-mono">Anti-Tamper</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 5: UDP Discovery -->
+        <div class="system-card" data-reveal data-delay="100">
+          <div class="card-media" style="background-image: url('https://images.unsplash.com/photo-1551808525-51a94da548ce?auto=format&fit=crop&w=800&q=80');">
+            <span class="card-badge">Zero-Config Peering</span>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">Dual Auto-Discovery</h3>
+            <p class="card-text">
+              Broadcasts UDP discovery beacons on port 60001 for seamless LAN auto-peering, combined with localized port scanning (6000-6030) for single-machine simulation.
+            </p>
+            <div class="card-spec-tag">
+              <span>Port: UDP 60001 / TCP 6000-6030</span>
+              <span class="text-mono">Auto Mesh</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 6: Concurrency & Storage -->
+        <div class="system-card" data-reveal data-delay="200">
+          <div class="card-media" style="background-image: url('https://images.unsplash.com/photo-1607799279861-4dd421887fb3?auto=format&fit=crop&w=800&q=80');">
+            <span class="card-badge">Thread-Safe Storage</span>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">Mutex-Locked Persistence</h3>
+            <p class="card-text">
+              Thread-synchronized SQLite database layer preventing database lock contention during concurrent history streaming, chat arrivals, and vote submissions.
+            </p>
+            <div class="card-spec-tag">
+              <span>Storage: SQLite3 + Thread Lock</span>
+              <span class="text-mono">ACID Compliant</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Protocol Schema Inspector with Cryptography Stream Background -->
+  <section class="section section-with-bg" id="schemas">
+    <div class="section-bg-image" style="background-image: url('https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1920&q=80'); opacity: 0.08;"></div>
+    <div class="section-bg-overlay"></div>
+
+    <div class="container">
+      <div class="section-head" data-reveal>
+        <div class="section-overline">Wire Protocol</div>
+        <h2 class="section-headline">Standardized Packet Envelope Schemas</h2>
+        <p class="section-description">Inspect the exact JSON wire framing dispatched across the P2P TCP socket mesh.</p>
+      </div>
+
+      <div class="schema-inspector" data-reveal data-delay="150">
+        <div class="schema-tabs">
+          <button class="schema-tab-btn active" data-tab="chat">CHAT_ENVELOPE</button>
+          <button class="schema-tab-btn" data-tab="vote">VOTE_CONSENSUS</button>
+          <button class="schema-tab-btn" data-tab="file">FILE_STREAM</button>
+          <button class="schema-tab-btn" data-tab="discovery">UDP_BEACON</button>
+        </div>
+
+        <div class="schema-content-block">
+          <div class="schema-explanation">
+            <h3 class="schema-title" id="schema-title">Broadcast &amp; Room Messaging Envelope</h3>
+            <p class="schema-desc" id="schema-desc">Carries encrypted message payloads with Lamport logical clock timestamps for deterministic causal ordering.</p>
+            <ul class="schema-properties-list" id="schema-props">
+              <!-- Dynamically rendered by app.js -->
+            </ul>
+          </div>
+
+          <div class="schema-code-viewer">
+            <pre><code id="schema-code">Loading schema...</code></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Architectural Comparison Matrix with Silicon Hardware Background -->
+  <section class="section section-with-bg" id="comparison">
+    <div class="section-bg-image" style="background-image: url('https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1920&q=80'); opacity: 0.08;"></div>
+    <div class="section-bg-overlay"></div>
+
+    <div class="container">
+      <div class="section-head" data-reveal>
+        <div class="section-overline">System Comparison</div>
+        <h2 class="section-headline">Centralized SaaS vs. NEXUS P2P Mesh</h2>
+        <p class="section-description">How decentralized architecture compares against conventional client-server paradigms.</p>
+      </div>
+
+      <div class="matrix-table-wrap" data-reveal data-delay="150">
+        <table class="matrix-table">
+          <thead>
+            <tr>
+              <th>Architecture Metric</th>
+              <th>Centralized Model (Slack, Discord)</th>
+              <th>NEXUS P2P Distributed Engine</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Topology</strong></td>
+              <td>Centralized Cloud Servers</td>
+              <td><span class="tag-badge tag-success">Full-Mesh Decentralized P2P</span></td>
+            </tr>
+            <tr>
+              <td><strong>Single Point of Failure</strong></td>
+              <td><span class="tag-badge tag-danger">Yes (Cloud Outage = System Down)</span></td>
+              <td><span class="tag-badge tag-success">Zero (Nodes operate autonomously)</span></td>
+            </tr>
+            <tr>
+              <td><strong>Causal Event Ordering</strong></td>
+              <td>Central Server Monotonic Clock</td>
+              <td><span class="tag-badge tag-success">Lamport Logical Clocks L(e)</span></td>
+            </tr>
+            <tr>
+              <td><strong>Data Privacy &amp; E2EE</strong></td>
+              <td>Server Decryption / Metadata Retention</td>
+              <td><span class="tag-badge tag-success">Zero-Knowledge Fernet Encryption</span></td>
+            </tr>
+            <tr>
+              <td><strong>Local Latency</strong></td>
+              <td>50ms - 250ms (Roundtrip to cloud)</td>
+              <td><span class="tag-badge tag-success">&lt; 1ms Direct LAN Sockets</span></td>
+            </tr>
+            <tr>
+              <td><strong>Consensus Model</strong></td>
+              <td>Centralized DB Transaction</td>
+              <td><span class="tag-badge tag-success">Leader Election + Backup Fallback</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- Download Call to Action Banner with Orbital Mesh Background -->
+  <section class="section section-with-bg">
+    <div class="section-bg-image" style="background-image: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1920&q=80'); opacity: 0.15;"></div>
+    <div class="section-bg-overlay"></div>
+
+    <div class="container">
+      <div class="download-card-hero" data-reveal>
+        <!-- Left Pane: Content & CTA -->
+        <div class="download-card-left">
+          <div class="badge-pill" style="margin-bottom: var(--space-4); width: fit-content;">
+            <img src="assets/nexus-logo.svg" alt="Nexus Logo" style="width: 18px; height: 18px;">
+            <span>Standalone Binary Ready</span>
+          </div>
+
+          <h2 class="section-headline" style="font-size: 2rem; margin-bottom: var(--space-4); letter-spacing: -0.5px;">
+            Deploy Your Private Distributed Mesh
+          </h2>
+
+          <p class="section-description" style="margin-bottom: var(--space-6); font-size: 0.95rem;">
+            Download the standalone Windows package. Zero central infrastructure, zero tracking, sub-millisecond local socket throughput with Lamport logical clocks.
+          </p>
+
+          <div style="display: flex; gap: var(--space-3); flex-wrap: wrap;">
+            <a href="NexusP2P-Windows-x64.zip" download="NexusP2P-Windows-x64.zip" class="btn btn-primary btn-lg btn-download-trigger">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              <span>Download ZIP (32.6 MB)</span>
+            </a>
+            <a href="NexusP2P.exe" download="NexusP2P.exe" class="btn btn-secondary btn-lg btn-download-trigger">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              <span>Direct .exe (5.9 MB)</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Right Pane: Authentic P2P Distributed Systems Unsplash Media Visual -->
+        <div class="download-card-right" style="background-image: url('https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=1200&q=80');">
+          <div class="mesh-status-overlay">
+            <div class="mesh-status-chip">
+              <span class="badge-dot"></span>
+              <span>P2P MESH: BROADCAST READY</span>
+            </div>
+            <span class="text-mono" style="font-size: 0.75rem; color: var(--brand-cyan);">TCP 6000-6030</span>
+          </div>
+
+          <div class="mesh-info-bottom">
+            <div class="mesh-info-title">Distributed Autonomous Topology</div>
+            <div class="mesh-info-sub">Full-mesh peer sockets with instant UDP LAN auto-discovery and cryptographic PBKDF2HMAC authentication.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Detailed Enterprise Multi-Column Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top-grid">
+        <!-- Column 1: Brand & Status -->
+        <div class="footer-brand-col">
+          <a href="#" class="brand-link">
+            <img src="assets/nexus-logo.svg" alt="NEXUS Logo" class="brand-logo-img">
+            <span>NEXUS <span class="text-brand-gradient">P2P</span></span>
+          </a>
+          <p class="footer-brand-desc">
+            A resilient serverless communication and consensus engine engineered with low-level socket primitives, Lamport causality, and applied cryptography.
+          </p>
+          <div class="system-status-indicator">
+            <span class="badge-dot"></span>
+            <span>All Subsystems Operational</span>
+          </div>
+        </div>
+
+        <!-- Column 2: Architecture & Protocol -->
+        <div>
+          <h4 class="footer-col-title">Architecture</h4>
+          <ul class="footer-links-list">
+            <li><a href="#innovations">Lamport Logical Clocks</a></li>
+            <li><a href="#innovations">Fernet E2EE &amp; KDF</a></li>
+            <li><a href="#innovations">Leader Election Consensus</a></li>
+            <li><a href="#innovations">UDP Broadcast Peering</a></li>
+            <li><a href="#innovations">Thread-Safe SQLite Store</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 3: Developer & Docs -->
+        <div>
+          <h4 class="footer-col-title">Developer</h4>
+          <ul class="footer-links-list">
+            <li><a href="#schemas">Wire Protocol Schemas</a></li>
+            <li><a href="https://github.com/idrisrayanchakib-dev/nexus-distributed-system" target="_blank">GitHub Repository</a></li>
+            <li><a href="https://github.com/idrisrayanchakib-dev/nexus-distributed-system/actions" target="_blank">CI/CD Test Matrix</a></li>
+            <li><a href="NexusP2P-Windows-x64.zip" download>Release Binaries</a></li>
+            <li><a href="https://opensource.org/licenses/MIT" target="_blank">MIT License</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 4: System Specs -->
+        <div>
+          <h4 class="footer-col-title">System Specs</h4>
+          <ul class="footer-links-list">
+            <li><span class="text-mono" style="color: var(--text-secondary);">TCP Ports: 6000-6030</span></li>
+            <li><span class="text-mono" style="color: var(--text-secondary);">UDP Beacon: 60001</span></li>
+            <li><span class="text-mono" style="color: var(--text-secondary);">KDF: PBKDF2HMAC-SHA256</span></li>
+            <li><span class="text-mono" style="color: var(--text-secondary);">Chunk Size: 32 KB</span></li>
+            <li><span class="text-mono" style="color: var(--text-secondary);">Hash: SHA-256 Validated</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Bottom Bar -->
+      <div class="footer-bottom-bar">
+        <div>
+          <span>© 2026 NEXUS Distributed Systems. Designed &amp; Engineered by <strong>Idris Chakib</strong>.</span>
+        </div>
+        <div style="display: flex; gap: var(--space-6);">
+          <span class="text-mono">v2.0.0 (Production Build)</span>
+          <span>•</span>
+          <span class="text-mono">SHA-256 Verified</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
